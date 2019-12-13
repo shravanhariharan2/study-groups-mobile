@@ -1,26 +1,36 @@
 package linecooks.backend.models;
 
+import org.bson.types.ObjectId;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "users")
 public class User {
 
-    private int id;
+    @Id
+    private ObjectId id;
+
     private String username;
     private String email;
     private String password;
 
-    private static int count = 0;
+    public User() {
 
-    public User(String username, String email, String password) {
-        this.id = ++count;
+    }
+
+    public User(ObjectId id, String username, String email, String password) {
+        this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
     }
 
-    public int getId() {
-        return id;
+    public String getId() {
+        return id.toHexString();
     }
 
-    public void setId(int id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 
