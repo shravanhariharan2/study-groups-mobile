@@ -1,2 +1,3 @@
 .vscode
-./backend/src/main/resources/application.properties
+keys.json
+application.properties
