@@ -6,4 +6,6 @@ import linecooks.backend.models.User;
 
 public interface UserRepository extends MongoRepository<User, String> {
     User findByid(Object id);
+
+    User findByemail(String email);
 }

@@ -36,6 +36,12 @@ public class UserController {
         return repository.findByid(id);
     }
 
+    // Read by email
+    @GetMapping(value = "/email/{email}")
+    public User getUserByEmail(@PathVariable("email") String email) {
+        return repository.findByemail(email);
+    }
+
     // Write
     @PostMapping(value = "/")
     public User createUser(@Valid @RequestBody User user) {
