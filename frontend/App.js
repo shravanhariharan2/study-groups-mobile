@@ -1,20 +1,22 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Login from './components/onboarding/Login';
+import React, { Component } from "react";
+import {
+  View,
+  Text,
+  StyleSheet
+} from "react-native";
+import AuthNavigator from "./routes/AuthStack"
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      < Login />
-    </View >
+    <AuthNavigator />
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center'
-  },
+  }
 });
