@@ -9,12 +9,14 @@ export default class Intro extends Component {
 
     render() {
         return (
-            <View>
-                <Text style={styles.title}>Welcome to Study Groups Mobile</Text>
-                <Button title="Log in" onPress={this.props.navigator.navigate("Login")}></Button>
-                <Text>Don't have an account?</Text>
-                <Button title="Sign up" onPress={this.props.navigator.navigate("Signup")}></Button>
-
+            <View style={styles.container}>
+                <Text style={styles.title}>Study Groups Mobile</Text>
+                <View style={styles.button}>
+                   <Button title="Sign up" style={styles.button} onPress={() => this.props.navigation.navigate("Signup")}/>
+                </View>
+                <View style={styles.button}>
+                    <Button title="Log in" style={styles.button} onPress={() => this.props.navigation.navigate("Login")} />
+                </View>
             </View>
         )
     }
@@ -23,13 +25,19 @@ export default class Intro extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        fontSize: 24,
+        fontSize: 36,
         backgroundColor: '#e8e8e8',
         alignItems: 'center',
         justifyContent: 'center'
     },
     title: {
-        fontSize: 36,
-        fontWeight: "bold"
+        fontSize: 30,
+        fontWeight: "bold",
+        marginBottom: 70
+    },
+    button: {
+        width: 200,
+        height: 30,
+        marginBottom: 40
     }
 });
