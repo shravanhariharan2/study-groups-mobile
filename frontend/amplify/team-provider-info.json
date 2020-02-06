@@ -1,0 +1,22 @@
+{
+    "local": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-study-groups-mobile-local-174052-authRole",
+            "UnauthRoleArn": "arn:aws:iam::367614353921:role/amplify-study-groups-mobile-local-174052-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::367614353921:role/amplify-study-groups-mobile-local-174052-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "amplify-study-groups-mobile-local-174052-deployment",
+            "UnauthRoleName": "amplify-study-groups-mobile-local-174052-unauthRole",
+            "StackName": "amplify-study-groups-mobile-local-174052",
+            "StackId": "arn:aws:cloudformation:us-west-2:367614353921:stack/amplify-study-groups-mobile-local-174052/62140a30-46ef-11ea-ad4f-0af3380f813e",
+            "AmplifyAppId": "d2lkmyrbbc5hfr"
+        },
+        "categories": {
+            "auth": {
+                "studygroupsmobile6a1820d9": {
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Google\",\"client_id\":\"301271986623-vo9mc73k8f9rafv6k2u33n5462ou2ltb.apps.googleusercontent.com\",\"client_secret\":\"Fv3xlYQ04HhTB3A6PCRo5oIV\"}]"
+                }
+            }
+        }
+    }
+}
