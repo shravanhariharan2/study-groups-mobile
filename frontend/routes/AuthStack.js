@@ -10,13 +10,36 @@ const AppNavigator = createStackNavigator({
     Intro: {
         screen: Intro,
         navigationOptions: {
+            headerShown: false,
+            headerTitle: "Back"
+        }
+    },
+    Login: {
+        screen: Login,
+        navigationOptions: {
+            headerTransparent: true,
+            headerTitle: ""
+        }
+    },
+    Signup: {
+        screen: Signup,
+        navigationOptions: {
+            headerTransparent: true,
+            headerTitle: ""
+        }
+    },
+    Verification: {
+        screen: Verification,
+        navigationOptions: {
             headerShown: false
         }
     },
-    Login: Login,
-    Signup: Signup,
-    Verification: Verification,
-    Home: Home
+    Home: {
+        screen: Home,
+        navigationOptions: {
+            headerShown: false
+        }
+    }
 });
 
 export default createAppContainer(AppNavigator);
