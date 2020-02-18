@@ -6,7 +6,9 @@ import {
     StyleSheet,
     TextInput,
     KeyboardAvoidingView,
-    TouchableOpacity
+    TouchableOpacity,
+    TouchableWithoutFeedback,
+    Keyboard
 } from "react-native";
 import { Auth } from "aws-amplify";
 
@@ -31,35 +33,63 @@ export default class Login extends Component {
 
     handleLogin() {
         const { username, password } = this.state;
-        Auth.signIn({ username, password });
-        this.props.navigation.navigate("Home");
+
+        Auth.signIn({ username, password })
+            .then(user => {
+                console.log(user);
+                this.props.navigation.navigate("Home");
+            })
+            .catch(err => {
+                console.log(err);
+                const errorType = err["code"];
+
+                switch (errorType) {
+                    case "UserNotFoundException":
+                        alert("User does not exist");
+                        break;
+                    case "InvalidParameterException":
+                        alert("Please enter both a username and a password");
+                        break;
+                    case "NotAuthorizedException":
+                        alert("Username and password do not match");
+                        break;
+                }
+
+                // clear password entry
+                this.setState({
+                    password: ""
+                });
+            });
     }
 
     render() {
         return (
-            <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
-                <View style={styles.formWrapper}>
-                    <Text style={styles.title}> Login </Text>
-                    <TextInput
-                        style={styles.input}
-                        onChangeText={value => this.onChangeText("username", value)}
-                        placeholder="Username"
-                        placeholderTextColor="#777"
-                    />
-                    <TextInput
-                        secureTextEntry={true}
-                        style={styles.input}
-                        onChangeText={value => this.onChangeText("password", value)}
-                        placeholder="Password"
-                        placeholderTextColor="#777"
-                    />
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+                <View style={styles.container} behavior="padding" enabled>
+                    <View style={styles.formWrapper}>
+                        <Text style={styles.title}> Login </Text>
+                        <TextInput
+                            style={styles.input}
+                            onChangeText={value => this.onChangeText("username", value)}
+                            placeholder="Username"
+                            placeholderTextColor="#777"
+                        />
+                        <TextInput
+                            secureTextEntry={true}
+                            style={styles.input}
+                            value={this.state.password}
+                            onChangeText={value => this.onChangeText("password", value)}
+                            placeholder="Password"
+                            placeholderTextColor="#777"
+                        />
+                    </View>
+                    <View style={styles.buttonWrapper}>
+                        <TouchableOpacity style={styles.button} onPress={() => this.handleLogin()}>
+                            <Text style={styles.buttonText}>Log In</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
-                <View style={styles.buttonWrapper}>
-                    <TouchableOpacity style={styles.button} onPress={() => this.handleLogin()}>
-                        <Text style={styles.buttonText}>Log In</Text>
-                    </TouchableOpacity>
-                </View>
-            </KeyboardAvoidingView>
+            </TouchableWithoutFeedback>
         );
     }
 }
@@ -85,7 +115,7 @@ const styles = StyleSheet.create({
         borderColor: "#000",
         borderBottomWidth: 2,
         padding: 10,
-        width: 220,
+        width: 300,
         marginBottom: 30
     },
     buttonWrapper: {
