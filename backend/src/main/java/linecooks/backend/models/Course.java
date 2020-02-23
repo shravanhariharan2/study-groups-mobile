@@ -16,7 +16,8 @@ public class Course {
     public Course() {
     }
 
-    public Course(String name, String professor, String session) {
+    public Course(ObjectId id, String name, String professor, String session) {
+        this.id = id;
         this.name = name;
         this.professor = professor;
         this.session = session;

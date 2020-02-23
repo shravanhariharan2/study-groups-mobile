@@ -25,11 +25,28 @@ public class UserTests {
     public void createRows() {
         // todo: Finish test
         repository.deleteAll();
+        
         List<Course> courses1 = new ArrayList<Course>();
-        courses1.add(new Course("CSE11", "Niema", "FA20"));
-        courses1.add(new Course("CSE12", "Gary", "WI20"));
+        List<Course> courses2 = new ArrayList<Course>();
+        List<Course> courses3 = new ArrayList<Course>();
+        
+        courses1.add(new Course(ObjectId.get(), "CSE11", "Niema", "FA20"));
+        courses1.add(new Course(ObjectId.get(), "CSE12", "Gary", "WI20"));
+        
+        courses2.add(new Course(ObjectId.get(), "MATH18", "Eggers", "FA19"));
+        courses2.add(new Course(ObjectId.get(), "CAT2", "Algaze", "WI20"));
+        
+        courses3.add(new Course(ObjectId.get(), "CSE100", "Niema", "FA20"));
+        courses3.add(new Course(ObjectId.get(), "CSE30", "Chin", "SP20"));
+
         repository.save(new User(
-            ObjectId.get(), "Shravan", "smhariha@ucsd.edu", courses1
+            ObjectId.get(), "Ted", "ted@ucsd.edu", courses1
+        ));
+        repository.save(new User(
+            ObjectId.get(), "Bobby", "bobby@ucsd.edu", courses2
+        ));
+        repository.save(new User(
+            ObjectId.get(), "User", "user@ucsd.edu", courses3
         ));
         repository.findAll().forEach(System.out::println);
     }

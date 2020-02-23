@@ -38,7 +38,7 @@ public class UserController {
     }
 
     // get all courses from user
-    @GetMapping(value = "/courses/{id}")
+    @GetMapping(value = "{id}/courses/")
     public List<Course> getUserClasses(@PathVariable("id") ObjectId id) {
         return repository.findByid(id).getCourses();
     }
@@ -47,6 +47,9 @@ public class UserController {
     @PostMapping(value = "/")
     public User createUser(@Valid @RequestBody User user) {
         user.setId(ObjectId.get());
+        for(Course course : user.getCourses()) {
+            course.setId(ObjectId.get());
+        }
         repository.save(user);
         return user;
     }

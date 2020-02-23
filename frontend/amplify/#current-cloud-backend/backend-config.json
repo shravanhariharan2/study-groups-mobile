@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"studygroupsmobile6a1820d9": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}
