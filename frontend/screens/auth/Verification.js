@@ -9,7 +9,6 @@ import {
     Keyboard
 } from "react-native";
 import { Auth } from "aws-amplify";
-import axios from "axios";
 
 class Verification extends Component {
     constructor(props) {
@@ -33,19 +32,11 @@ class Verification extends Component {
         Auth.confirmSignUp(username, verificationCode)
             .then(user => {
                 console.log(user);
-                // add user to our database
-                axios
-                    .post("https://study-groups-backend.herokuapp.com/users/", {
-                        name: this.state.username,
-                        email: this.state.email
-                    })
-                    .then(res => {
-                        console.log(res);
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    });
-                this.props.navigation.navigate("Home");
+                
+                this.props.navigation.navigate("SelectCourses", {
+                    username: this.state.username,
+                    email: this.state.email
+                });
             })
             .catch(err => {
                 console.log(err);
