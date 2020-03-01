@@ -4,17 +4,11 @@ import {
     View,
     StyleSheet,
     TextInput,
-    KeyboardAvoidingView,
-    SafeAreaView,
     TouchableWithoutFeedback,
     TouchableOpacity,
-    Platform,
     Keyboard,
-    Button
 } from "react-native";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { Auth } from "aws-amplify";
-import axios from "axios";
 
 export default class Signup extends Component {
     constructor(props) {
