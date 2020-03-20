@@ -10,6 +10,7 @@ import {
     TouchableWithoutFeedback,
     Keyboard
 } from "react-native";
+import AuthButton from "../../components/AuthButton";
 import { Auth } from "aws-amplify";
 
 export default class Login extends Component {
@@ -33,6 +34,12 @@ export default class Login extends Component {
 
     handleLogin() {
         const { username, password } = this.state;
+
+        // Check empty fields
+        if(username.length == 0 || password.length == 0) {
+            alert("Please enter valid details");
+            return;
+        }
 
         Auth.signIn({ username, password })
             .then(user => {
@@ -84,9 +91,12 @@ export default class Login extends Component {
                         />
                     </View>
                     <View style={styles.buttonWrapper}>
-                        <TouchableOpacity style={styles.button} onPress={() => this.handleLogin()}>
-                            <Text style={styles.buttonText}>Log In</Text>
-                        </TouchableOpacity>
+                        <AuthButton
+                            text="Log In"
+                            width={160}
+                            fontSize={20}
+                            onPress={() => this.handleLogin()}
+                        />
                     </View>
                 </View>
             </TouchableWithoutFeedback>
@@ -124,18 +134,4 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginBottom: 120
     },
-    button: {
-        width: 180,
-        height: 60,
-        borderWidth: 2,
-        borderColor: "#63ace5",
-        marginBottom: 30,
-        backgroundColor: "#63ace5",
-        justifyContent: "center",
-        alignItems: "center",
-        borderRadius: 100
-    },
-    buttonText: {
-        fontSize: 16
-    }
 });

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet, Button, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
+import AuthButton from "../../components/AuthButton";
 
 export default class Intro extends Component {
     constructor(props) {
@@ -14,20 +15,28 @@ export default class Intro extends Component {
                     <Text style={styles.subTitle}>Find study groups easily</Text>
                 </View>
                 <View style={styles.buttonWrapper}>
-                    <TouchableOpacity
-                        style={styles.button}
+                    <AuthButton
+                        text="Sign Up"
+                        width={240}
+                        fontSize={20}
                         onPress={() => this.props.navigation.navigate("Signup")}
-                    >
-                        <Text style={styles.buttonText}>Sign Up</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        title="Log in"
-                        style={styles.button}
+                    />
+                    <AuthButton
+                        text="Log In"
+                        width={240}
+                        fontSize={20}
                         onPress={() => this.props.navigation.navigate("Login")}
-                    >
-                        <Text style={styles.buttonText}>Log In</Text>
-                    </TouchableOpacity>
+                    />
+                    <AuthButton
+                        text="Select Courses"
+                        width={240}
+                        fontSize={20}
+                        onPress={() => {
+                        this.props.navigation.navigate("SelectCourses", {
+                            username: "admin",
+                            email: "admin@admin.com"
+                        })
+                    }} />
                 </View>
             </View>
         );
@@ -57,18 +66,4 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginBottom: 50
     },
-    button: {
-        width: 240,
-        height: 60,
-        borderWidth: 2,
-        borderColor: "#63ace5",
-        marginBottom: 30,
-        backgroundColor: "#63ace5",
-        justifyContent: "center",
-        alignItems: "center",
-        borderRadius: 100
-    },
-    buttonText: {
-        fontSize: 20
-    }
 });

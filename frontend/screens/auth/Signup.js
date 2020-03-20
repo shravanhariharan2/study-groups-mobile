@@ -5,9 +5,9 @@ import {
     StyleSheet,
     TextInput,
     TouchableWithoutFeedback,
-    TouchableOpacity,
     Keyboard,
 } from "react-native";
+import AuthButton from "../../components/AuthButton";
 import { Auth } from "aws-amplify";
 
 export default class Signup extends Component {
@@ -112,12 +112,12 @@ export default class Signup extends Component {
                         />
 
                         <View style={styles.buttonWrapper}>
-                            <TouchableOpacity
-                                style={styles.button}
+                            <AuthButton
+                                text="Sign Up"
+                                width={180}
+                                fontSize={20}
                                 onPress={() => this.handleSignUp()}
-                            >
-                                <Text style={styles.buttonText}>Sign Up</Text>
-                            </TouchableOpacity>
+                            />
                         </View>
                     </View>
                 </View>
@@ -156,17 +156,4 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginBottom: 120
     },
-    button: {
-        width: 180,
-        height: 60,
-        borderWidth: 2,
-        borderColor: "#63ace5",
-        backgroundColor: "#63ace5",
-        justifyContent: "center",
-        alignItems: "center",
-        borderRadius: 100
-    },
-    buttonText: {
-        fontSize: 20
-    }
 });
