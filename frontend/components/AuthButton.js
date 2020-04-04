@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { 
-    View,
     Text,
     StyleSheet,
     TouchableOpacity
@@ -35,12 +34,15 @@ const styles = StyleSheet.create({
     },
     button: {
         height: 60,
-        borderWidth: 2,
-        borderColor: "#63ace5",
         marginBottom: 30,
-        backgroundColor: "#63ace5",
+        backgroundColor: "#87b7ff",
         justifyContent: "center",
         alignItems: "center",
-        borderRadius: 100
+        borderRadius: 100,
+        elevation: 10,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
     },
 });
