@@ -2,11 +2,8 @@ import React, { Component } from "react";
 import {
     Text,
     View,
-    Button,
     StyleSheet,
     TextInput,
-    KeyboardAvoidingView,
-    TouchableOpacity,
     TouchableWithoutFeedback,
     Keyboard
 } from "react-native";
@@ -79,7 +76,7 @@ export default class Login extends Component {
                             style={styles.input}
                             onChangeText={value => this.onChangeText("username", value)}
                             placeholder="Username"
-                            placeholderTextColor="#777"
+                            placeholderTextColor="#5c5c5c"
                         />
                         <TextInput
                             secureTextEntry={true}
@@ -87,7 +84,7 @@ export default class Login extends Component {
                             value={this.state.password}
                             onChangeText={value => this.onChangeText("password", value)}
                             placeholder="Password"
-                            placeholderTextColor="#777"
+                            placeholderTextColor="#5c5c5c"
                         />
                     </View>
                     <View style={styles.buttonWrapper}>
@@ -108,7 +105,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         fontSize: 24,
-        backgroundColor: "#b3cde0",
+        backgroundColor: "#d9e7fc",
         alignItems: "center",
         justifyContent: "center"
     },
