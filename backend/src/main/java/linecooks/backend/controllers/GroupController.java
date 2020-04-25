@@ -59,4 +59,15 @@ public class GroupController {
         return repository.findBycourseName(courseName);
     }
 
+    @GetMapping(value = "/createdBy/{user_id}")
+    public List<Group> getGroupsCreatedByUser(@PathVariable ObjectId user) {
+        return repository.findByuserId(user);
+    }
+
+    @PutMapping(value = "/{group_id}")
+    public Group putGroup(@Valid @RequestBody Group group) {
+        repository.save(group);
+        return group;
+    }
+
 }

@@ -10,7 +10,7 @@ public class Group {
     @Id
     private ObjectId id;
     private String name;
-    private String userId;
+    private ObjectId userId;
     private String courseName;
     private int capacity;
     private String description;
@@ -18,7 +18,7 @@ public class Group {
     private String startDateTime;
 	private String stopDateTime;
 	
-	public Group(String name, String userId, String courseName, int capacity, String description, String location,
+	public Group(String name, ObjectId userId, String courseName, int capacity, String description, String location,
 			String startDateTime, String stopDateTime) {
 		this.name = name;
 		this.userId = userId;
@@ -42,7 +42,7 @@ public class Group {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getUserId() {
+	public ObjectId getUserId() {
 		return userId;
 	}
 	public void setUserId(String userId) {
