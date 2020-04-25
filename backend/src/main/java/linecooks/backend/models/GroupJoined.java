@@ -1,27 +1,28 @@
 package linecooks.backend.models;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
 public class GroupJoined {
 
     @Id
-    private Object id;
-    private Object userId;
-    private Object groupId;
+    private ObjectId id;
+    private ObjectId userId;
+    private ObjectId groupId;
 
-    public Object getUserId() {
+    public ObjectId getUserId() {
         return userId;
     }
 
-    public void setUserId(Object userId) {
+    public void setUserId(ObjectId userId) {
         this.userId = userId;
     }
 
-    public Object getGroupId() {
+    public ObjectId getGroupId() {
         return groupId;
     }
 
-    public void setGroupId(Object groupId) {
+    public void setGroupId(ObjectId groupId) {
         this.groupId = groupId;
     }
 
