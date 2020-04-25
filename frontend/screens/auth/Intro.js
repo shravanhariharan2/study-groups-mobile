@@ -28,6 +28,14 @@ export default class Intro extends Component {
                     >
                         <Text style={styles.buttonText}>Log In</Text>
                     </TouchableOpacity>
+
+                    <TouchableOpacity
+                        title="Settings"
+                        style={styles.button}
+                        onPress={() => this.props.navigation.navigate("Settings")}
+                    >
+                        <Text style={styles.buttonText}>Settings Page</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         );

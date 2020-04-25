@@ -10,5 +10,5 @@ import linecooks.backend.models.Group;
 public interface GroupRepository extends MongoRepository<Group, String> {
     Group findByid(ObjectId id);
     List<Group> findBycourseName(String courseName);
-    Group findByuserId(ObjectId id);
+    List<Group> findByuserId(ObjectId id);
 }
