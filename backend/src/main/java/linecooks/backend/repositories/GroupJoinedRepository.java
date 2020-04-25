@@ -1,13 +1,12 @@
 package linecooks.backend.repositories;
 
-import org.bson.types.ObjectId;
+import java.util.List;
 
-import linecooks.backend.models.Group;
-import linecooks.backend.models.User;
+import org.bson.types.ObjectId;
 
 public interface GroupJoinedRepository {
 
-    User findByuserId(ObjectId userId);
-    Group findBygroupId(ObjectId groupId);
+    List<ObjectId> findByuserId(ObjectId userId);
+    List<ObjectId> findBygroupId(ObjectId groupId);
 
 }
