@@ -4,9 +4,9 @@ import Login from "../screens/auth/Login";
 import Signup from "../screens/auth/Signup";
 import Intro from "../screens/auth/Intro";
 import Verification from "../screens/auth/Verification";
-import Home from "../screens/Home";
+import Home from "../screens/main/Home";
 import SelectCourses from "../screens/onboarding/SelectCourses";
-import Settings from "../screens/Home";
+import Settings from "../screens/main/Home";
 
 
 const AppNavigator = createStackNavigator({
