@@ -6,6 +6,8 @@ import Intro from "../screens/auth/Intro";
 import Verification from "../screens/auth/Verification";
 import Home from "../screens/Home";
 import SelectCourses from "../screens/onboarding/SelectCourses";
+import Settings from "../screens/Home";
+
 
 const AppNavigator = createStackNavigator({
     Intro: {
@@ -45,6 +47,13 @@ const AppNavigator = createStackNavigator({
         screen: Home,
         navigationOptions: {
             headerShown: false
+        }
+    },
+    Settings: {
+        screen: Settings,
+        navigationOptions: {
+            headerTransparent: true,
+            headerTitle: ""
         }
     }
 });
