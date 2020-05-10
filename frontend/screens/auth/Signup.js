@@ -4,17 +4,11 @@ import {
     View,
     StyleSheet,
     TextInput,
-    KeyboardAvoidingView,
-    SafeAreaView,
     TouchableWithoutFeedback,
-    TouchableOpacity,
-    Platform,
     Keyboard,
-    Button
 } from "react-native";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import AuthButton from "../../components/AuthButton";
 import { Auth } from "aws-amplify";
-import axios from "axios";
 
 export default class Signup extends Component {
     constructor(props) {
@@ -92,13 +86,13 @@ export default class Signup extends Component {
                             style={styles.input}
                             onChangeText={value => this.onChangeText("username", value)}
                             placeholder="Username"
-                            placeholderTextColor="#777"
+                            placeholderTextColor="#5c5c5c"
                         />
                         <TextInput
                             style={styles.input}
                             onChangeText={value => this.onChangeText("email", value)}
                             placeholder="E-mail"
-                            placeholderTextColor="#777"
+                            placeholderTextColor="#5c5c5c"
                         />
                         <TextInput
                             secureTextEntry={true}
@@ -106,7 +100,7 @@ export default class Signup extends Component {
                             value={this.state.password}
                             onChangeText={value => this.onChangeText("password", value)}
                             placeholder="Password"
-                            placeholderTextColor="#777"
+                            placeholderTextColor="#5c5c5c"
                         />
                         <TextInput
                             secureTextEntry={true}
@@ -114,16 +108,16 @@ export default class Signup extends Component {
                             value={this.state.confirmPassword}
                             onChangeText={value => this.onChangeText("confirmPassword", value)}
                             placeholder="Confirm Password"
-                            placeholderTextColor="#777"
+                            placeholderTextColor="#5c5c5c"
                         />
 
                         <View style={styles.buttonWrapper}>
-                            <TouchableOpacity
-                                style={styles.button}
+                            <AuthButton
+                                text="Sign Up"
+                                width={180}
+                                fontSize={20}
                                 onPress={() => this.handleSignUp()}
-                            >
-                                <Text style={styles.buttonText}>Sign Up</Text>
-                            </TouchableOpacity>
+                            />
                         </View>
                     </View>
                 </View>
@@ -136,7 +130,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         fontSize: 24,
-        backgroundColor: "#b3cde0",
+        backgroundColor: "#d9e7fc",
         alignItems: "center",
         justifyContent: "center"
     },
@@ -162,17 +156,4 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginBottom: 120
     },
-    button: {
-        width: 180,
-        height: 60,
-        borderWidth: 2,
-        borderColor: "#63ace5",
-        backgroundColor: "#63ace5",
-        justifyContent: "center",
-        alignItems: "center",
-        borderRadius: 100
-    },
-    buttonText: {
-        fontSize: 20
-    }
 });

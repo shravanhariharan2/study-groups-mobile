@@ -8,8 +8,8 @@ import {
     TouchableWithoutFeedback,
     Keyboard
 } from "react-native";
+import AuthButton from "../../components/AuthButton";
 import { Auth } from "aws-amplify";
-import axios from "axios";
 
 class Verification extends Component {
     constructor(props) {
@@ -33,19 +33,11 @@ class Verification extends Component {
         Auth.confirmSignUp(username, verificationCode)
             .then(user => {
                 console.log(user);
-                // add user to our database
-                axios
-                    .post("https://study-groups-backend.herokuapp.com/users/", {
-                        name: this.state.username,
-                        email: this.state.email
-                    })
-                    .then(res => {
-                        console.log(res);
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    });
-                this.props.navigation.navigate("Home");
+                
+                this.props.navigation.navigate("SelectCourses", {
+                    username: this.state.username,
+                    email: this.state.email
+                });
             })
             .catch(err => {
                 console.log(err);
@@ -66,21 +58,19 @@ class Verification extends Component {
                         <View>
                             <TextInput
                                 placeholder="Code"
+                                placeholderTextColor="#5c5c5c"
                                 style={styles.input}
                                 value={this.state.verificationCode}
                                 onChangeText={value => this.onChangeText("verificationCode", value)}
                             />
                         </View>
                     </View>
-                    <View style={styles.buttonWrapper}>
-                        <TouchableOpacity
-                            style={styles.button}
-                            title="Verify"
-                            onPress={() => this.verify()}
-                        >
-                            <Text style={styles.buttonText}>Verify</Text>
-                        </TouchableOpacity>
-                    </View>
+                    <AuthButton
+                        text="Verify"
+                        width={180}
+                        fontSize={20}
+                        onPress={() => this.verify()}
+                    />
                 </View>
             </TouchableWithoutFeedback>
         );
@@ -92,12 +82,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         fontSize: 24,
-        backgroundColor: "#b3cde0",
+        backgroundColor: "#d9e7fc",
         alignItems: "center",
         justifyContent: "center"
     },
     formWrapper: {
-        marginTop: 160,
+        marginTop: 40,
+        marginBottom: 100,
         fontSize: 24,
         alignItems: "center"
     },
@@ -113,26 +104,7 @@ const styles = StyleSheet.create({
         borderColor: "#000",
         borderBottomWidth: 2,
         padding: 10,
-        width: 300,
+        width: 150,
         marginBottom: 30
     },
-    button: {
-        width: 180,
-        height: 60,
-        borderWidth: 2,
-        borderColor: "#63ace5",
-        backgroundColor: "#63ace5",
-        justifyContent: "center",
-        alignItems: "center",
-        borderRadius: 100
-    },
-    buttonWrapper: {
-        flex: 1,
-        justifyContent: "flex-end",
-        alignItems: "center",
-        marginBottom: 200
-    },
-    buttonText: {
-        fontSize: 20
-    }
 });

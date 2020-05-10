@@ -5,7 +5,9 @@ import Signup from "../screens/auth/Signup";
 import Intro from "../screens/auth/Intro";
 import Verification from "../screens/auth/Verification";
 import Home from "../screens/Home";
+import SelectCourses from "../screens/onboarding/SelectCourses";
 import Settings from "../screens/Home";
+
 
 const AppNavigator = createStackNavigator({
     Intro: {
@@ -31,6 +33,12 @@ const AppNavigator = createStackNavigator({
     },
     Verification: {
         screen: Verification,
+        navigationOptions: {
+            headerShown: false,       
+        }
+    },
+    SelectCourses: {
+        screen: SelectCourses,
         navigationOptions: {
             headerShown: false
         }

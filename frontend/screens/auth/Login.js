@@ -2,14 +2,12 @@ import React, { Component } from "react";
 import {
     Text,
     View,
-    Button,
     StyleSheet,
     TextInput,
-    KeyboardAvoidingView,
-    TouchableOpacity,
     TouchableWithoutFeedback,
     Keyboard
 } from "react-native";
+import AuthButton from "../../components/AuthButton";
 import { Auth } from "aws-amplify";
 
 export default class Login extends Component {
@@ -33,6 +31,12 @@ export default class Login extends Component {
 
     handleLogin() {
         const { username, password } = this.state;
+
+        // Check empty fields
+        if(username.length == 0 || password.length == 0) {
+            alert("Please enter valid details");
+            return;
+        }
 
         Auth.signIn({ username, password })
             .then(user => {
@@ -72,7 +76,7 @@ export default class Login extends Component {
                             style={styles.input}
                             onChangeText={value => this.onChangeText("username", value)}
                             placeholder="Username"
-                            placeholderTextColor="#777"
+                            placeholderTextColor="#5c5c5c"
                         />
                         <TextInput
                             secureTextEntry={true}
@@ -80,13 +84,16 @@ export default class Login extends Component {
                             value={this.state.password}
                             onChangeText={value => this.onChangeText("password", value)}
                             placeholder="Password"
-                            placeholderTextColor="#777"
+                            placeholderTextColor="#5c5c5c"
                         />
                     </View>
                     <View style={styles.buttonWrapper}>
-                        <TouchableOpacity style={styles.button} onPress={() => this.handleLogin()}>
-                            <Text style={styles.buttonText}>Log In</Text>
-                        </TouchableOpacity>
+                        <AuthButton
+                            text="Log In"
+                            width={160}
+                            fontSize={20}
+                            onPress={() => this.handleLogin()}
+                        />
                     </View>
                 </View>
             </TouchableWithoutFeedback>
@@ -98,7 +105,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         fontSize: 24,
-        backgroundColor: "#b3cde0",
+        backgroundColor: "#d9e7fc",
         alignItems: "center",
         justifyContent: "center"
     },
@@ -124,18 +131,4 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginBottom: 120
     },
-    button: {
-        width: 180,
-        height: 60,
-        borderWidth: 2,
-        borderColor: "#63ace5",
-        marginBottom: 30,
-        backgroundColor: "#63ace5",
-        justifyContent: "center",
-        alignItems: "center",
-        borderRadius: 100
-    },
-    buttonText: {
-        fontSize: 16
-    }
 });
