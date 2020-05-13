@@ -6,6 +6,7 @@ import {
 } from "react-native";
 
 class SearchGroups extends Component {
+    
     render() {
         return (
             <View style={styles.container}>
