@@ -45,7 +45,7 @@ public class Group {
 	public ObjectId getUserId() {
 		return userId;
 	}
-	public void setUserId(String userId) {
+	public void setUserId(ObjectId userId) {
 		this.userId = userId;
 	}
     
