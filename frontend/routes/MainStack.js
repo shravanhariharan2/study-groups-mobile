@@ -10,6 +10,8 @@ import Settings from '../screens/main/Settings'
 
 // icons
 import Sync from '../assets/jsicons/bottomNavigation/Sync'
+import Pencil from '../assets/jsicons/bottomNavigation/SettingsGear'
+import Icon from 'react-native-vector-icons/Ionicons'
 
   export default MainNavigator = createBottomTabNavigator(
     {
@@ -17,28 +19,28 @@ import Sync from '../assets/jsicons/bottomNavigation/Sync'
         screen: Home,
         navigationOptions: {
             tabBarLabel: 'Home',
-            tabBarIcon: ({ focused }) => <Sync />
+            tabBarIcon: ({ focused }) => <Icon name={'ios-home'} size={25} />
         }
       },
       CreateGroup: {
         screen: CreateGroup,
         navigationOptions: {
             tabBarLabel: 'Create Group',
-            tabBarIcon: ({ focused }) => <Sync />
+            tabBarIcon: ({ focused }) => <Icon name={'md-add-circle-outline'} size={25} />
         }
       },
       SearchGroups: {
         screen: SearchGroups,
         navigationOptions: {
             tabBarLabel: 'Search Groups',
-            tabBarIcon: ({ focused }) => <Sync />
+            tabBarIcon: ({ focused }) => <Icon name={'ios-search'} size={25} />
         }
       },
       Settings: {
         screen: Settings,
         navigationOptions: {
             tabBarLabel: 'Settings',
-            tabBarIcon: ({ focused }) => <Sync />
+            tabBarIcon: ({ focused }) => <Icon name={'ios-settings'} size={25} />
         }
       }
     },
