@@ -1,15 +1,12 @@
-import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import Login from "../screens/auth/Login";
 import Signup from "../screens/auth/Signup";
 import Intro from "../screens/auth/Intro";
 import Verification from "../screens/auth/Verification";
-import Home from "../screens/Home";
+import Home from "../screens/main/Home";
 import SelectCourses from "../screens/onboarding/SelectCourses";
-import Settings from "../screens/Home";
 
-
-const AppNavigator = createStackNavigator({
+export default AuthNavigator = createStackNavigator({
     Intro: {
         screen: Intro,
         navigationOptions: {
@@ -48,14 +45,6 @@ const AppNavigator = createStackNavigator({
         navigationOptions: {
             headerShown: false
         }
-    },
-    Settings: {
-        screen: Settings,
-        navigationOptions: {
-            headerTransparent: true,
-            headerTitle: ""
-        }
     }
 });
 
-export default createAppContainer(AppNavigator);

@@ -17,9 +17,9 @@ export default class Settings extends Component {
 
     render() {
         return (
-            <TouchableWithoutFeedback onPress={KeyboardEvent.dismiss} accesible={false}>
-                <Text style={styles.container}>Settings Test</Text>
-            </TouchableWithoutFeedback>
+            <View style={styles.container}>
+                <Text>Settings</Text>
+            </View>
         );
     }
 }
@@ -27,10 +27,8 @@ export default class Settings extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        fontSize: 24,
-        backgroundColor: "#b3cde0",
-        alignText: "center",
-        justifyContent: "center"
+        alignItems: 'center',
+        justifyContent: 'center'
     },
 
 })
