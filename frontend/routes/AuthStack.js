@@ -3,7 +3,6 @@ import Login from "../screens/auth/Login";
 import Signup from "../screens/auth/Signup";
 import Intro from "../screens/auth/Intro";
 import Verification from "../screens/auth/Verification";
-import Home from "../screens/main/Home";
 import SelectCourses from "../screens/onboarding/SelectCourses";
 
 export default AuthNavigator = createStackNavigator({
@@ -36,12 +35,6 @@ export default AuthNavigator = createStackNavigator({
     },
     SelectCourses: {
         screen: SelectCourses,
-        navigationOptions: {
-            headerShown: false
-        }
-    },
-    Home: {
-        screen: Home,
         navigationOptions: {
             headerShown: false
         }
