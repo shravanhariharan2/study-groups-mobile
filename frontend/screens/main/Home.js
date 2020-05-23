@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Modal } from "react-native";
-import AuthButton from "../components/AuthButton";
-import PopUp from "../components/PopUp";
+import { View, Text, StyleSheet } from "react-native";
+import PopUp from "../../components/PopUp";
 
 class Home extends Component {
     constructor(props) {
