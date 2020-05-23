@@ -1,6 +1,5 @@
 import React from "react"
 import { createBottomTabNavigator } from "react-navigation-tabs";
-import { createStackNavigator } from "react-navigation-stack";
 
 // screens
 import Home from '../screens/main/Home'
@@ -8,9 +7,6 @@ import CreateGroup from '../screens/main/CreateGroup'
 import SearchGroups from '../screens/main/SearchGroups'
 import Settings from '../screens/main/Settings'
 
-// icons
-import Sync from '../assets/jsicons/bottomNavigation/Sync'
-import Pencil from '../assets/jsicons/bottomNavigation/SettingsGear'
 import Icon from 'react-native-vector-icons/Ionicons'
 
   export default MainNavigator = createBottomTabNavigator(
