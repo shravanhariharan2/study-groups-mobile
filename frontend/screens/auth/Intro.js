@@ -27,6 +27,12 @@ export default class Intro extends Component {
                         fontSize={20}
                         onPress={() => this.props.navigation.navigate("Login")}
                     />
+                    <AuthButton
+                        text="Home"
+                        width={240}
+                        fontSize={20}
+                        onPress={() => this.props.navigation.navigate("Home")}
+                    />
                 </View>
             </View>
         );
