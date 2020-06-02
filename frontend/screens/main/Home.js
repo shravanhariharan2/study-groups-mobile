@@ -26,6 +26,8 @@ class Home extends Component {
                     <PopUp
                         animationType="fade"
                         transparent={true}
+                        insideText="hi"
+                        insideFontSize={20}
                         modalText="Close"
                         modalWidth={200}
                         modalFontSize={15}
