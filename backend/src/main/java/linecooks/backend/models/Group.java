@@ -16,7 +16,7 @@ public class Group {
     private String description;
     private String location;
     private String startDateTime;
-	private String stopDateTime;
+		private String stopDateTime;
 	
 	public Group(String name, ObjectId userId, String courseName, int capacity, String description, String location,
 			String startDateTime, String stopDateTime) {
